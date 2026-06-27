@@ -48,7 +48,6 @@ cp .env.local.example .env.local
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
-ADMIN_SECRET_PATH=br26-control-room
 ADMIN_PASSWORD=ตั้งรหัสที่เดายาก
 ```
 
@@ -62,12 +61,7 @@ npm run dev
 
 ## 🔐 เข้าหน้าแอดมิน
 
-URL: `http://localhost:3000/admin/<ADMIN_SECRET_PATH>`
-
-ตัวอย่าง: ถ้าตั้ง `ADMIN_SECRET_PATH=br26-control-room` →
-<http://localhost:3000/admin/br26-control-room>
-
-จะมีหน้ากรอกรหัสผ่าน — ใส่ค่าจาก `ADMIN_PASSWORD`
+กด **Ctrl + I** บนหน้าเว็บใดก็ได้ → กรอกรหัสผ่าน → ระบบพาไปที่ `/admin` อัตโนมัติ
 
 ระบบจะ set httpOnly cookie อายุ 24 ชั่วโมง
 
@@ -91,7 +85,6 @@ git push -u origin main
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
-   - `ADMIN_SECRET_PATH`
    - `ADMIN_PASSWORD`
 3. Deploy
 

@@ -19,15 +19,15 @@ export default async function ScoreboardPage() {
           <div className="font-mono text-[11px] tracking-[0.3em] text-teal-400">
             // EVENT_03 · SCOREBOARD
           </div>
-          <h1 className="mt-1 text-3xl font-bold">ตารางคะแนน 16 กลุ่ม</h1>
-          <p className="mt-1 text-sm text-white/55">เรียงจากคะแนนสูงสุด · อัปเดตเรียลไทม์</p>
+          <h1 className="mt-1 text-3xl font-bold">ตารางคะแนน 13 กลุ่ม</h1>
+          <p className="mt-1 text-sm text-white/55">13 กลุ่ม · เรียงจากคะแนนสูงสุด · อัปเดตเรียลไทม์</p>
         </div>
         <div className="text-right font-mono text-xs text-white/40">
-          16_GROUPS / LIVE
+          13_GROUPS / LIVE
         </div>
       </header>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {groups?.map((g, idx) => (
           <div
             key={g.id}

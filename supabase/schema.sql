@@ -53,7 +53,7 @@ create table groups (
 
 insert into groups (id, name, score)
 select n, 'กลุ่ม ' || n, 0
-from generate_series(1, 16) as n;
+from generate_series(1, 13) as n;
 
 -- =====================================================
 -- MISSION STATE — ภารกิจ (ล็อคไว้ก่อน)
