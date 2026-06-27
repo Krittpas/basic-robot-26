@@ -39,7 +39,7 @@ export function ScoreboardAdminClient({ initialGroups }: { initialGroups: Group[
   }
 
   return (
-    <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {groups.map((g) => (
         <div key={g.id} className="rounded-xl border border-white/5 bg-navy-900/60 p-4">
           <div className="flex items-center justify-between">
