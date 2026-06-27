@@ -96,7 +96,7 @@ export function SprintAdminClient({ initialHeats }: { initialHeats: Heat[] }) {
     const qualifying = heats.filter((h) => h.heat_order <= 5);
     const missing = qualifying.filter((h) => !h.is_finished).map((h) => h.heat_label);
     if (missing.length > 0) {
-      setFillMsg(`ยังไม่ได้มาร์ก Finished: ${missing.join(", ")}`);
+      setFillMsg(`ยังไม่ได้มาร์กเสร็จสิ้น: ${missing.join(", ")}`);
       return;
     }
 
@@ -112,14 +112,14 @@ export function SprintAdminClient({ initialHeats }: { initialHeats: Heat[] }) {
     const ok1 = await patchTeams(6, sf1);
     const ok2 = await patchTeams(7, sf2);
     setFilling(false);
-    setFillMsg(ok1 && ok2 ? "✓ ใส่ Semi Finals เรียบร้อย" : "เกิดข้อผิดพลาด ลองใหม่อีกครั้ง");
+    setFillMsg(ok1 && ok2 ? "✓ เติมทีมรอบรองเรียบร้อย" : "เกิดข้อผิดพลาด ลองใหม่อีกครั้ง");
   }
 
   async function autoFillFinal() {
     const sf1 = heats.find((h) => h.heat_order === 6)!;
     const sf2 = heats.find((h) => h.heat_order === 7)!;
     if (!sf1.is_finished || !sf2.is_finished) {
-      setFillMsg("ยังไม่ได้มาร์ก Finished: Semi Finals ยังไม่ครบ");
+      setFillMsg("ยังไม่ได้มาร์กเสร็จสิ้น: รอบรองชนะเลิศยังไม่ครบ");
       return;
     }
 
@@ -132,7 +132,7 @@ export function SprintAdminClient({ initialHeats }: { initialHeats: Heat[] }) {
     setFillMsg(null);
     const ok = await patchTeams(8, finalTeams);
     setFilling(false);
-    setFillMsg(ok ? "✓ ใส่ Final เรียบร้อย" : "เกิดข้อผิดพลาด ลองใหม่อีกครั้ง");
+    setFillMsg(ok ? "✓ เติมทีมรอบชิงเรียบร้อย" : "เกิดข้อผิดพลาด ลองใหม่อีกครั้ง");
   }
 
   const qualifyingDone = heats
@@ -160,7 +160,7 @@ export function SprintAdminClient({ initialHeats }: { initialHeats: Heat[] }) {
                 disabled={filling}
                 className="rounded-md bg-teal-400 px-4 py-2 font-mono text-sm font-bold text-navy-950 transition hover:bg-teal-500 disabled:opacity-40"
               >
-                {filling ? "กำลังใส่..." : "→ Auto-fill Semi Finals"}
+                {filling ? "กำลังใส่..." : "→ เติมทีมรอบรองอัตโนมัติ"}
               </button>
             )}
             {sfDone && (
@@ -169,7 +169,7 @@ export function SprintAdminClient({ initialHeats }: { initialHeats: Heat[] }) {
                 disabled={filling}
                 className="rounded-md border border-gold-400/50 bg-gold-400/10 px-4 py-2 font-mono text-sm font-bold text-gold-400 transition hover:bg-gold-400/20 disabled:opacity-40"
               >
-                {filling ? "กำลังใส่..." : "→ Auto-fill Final"}
+                {filling ? "กำลังใส่..." : "→ เติมทีมรอบชิงอัตโนมัติ"}
               </button>
             )}
           </div>
@@ -223,7 +223,7 @@ function HeatEditor({
               checked={heat.is_finished}
               onChange={(e) => onChange(heat.id, "is_finished", e.target.checked)}
             />
-            FINISHED
+            เสร็จสิ้น
           </label>
           <button
             onClick={() => onSave(heat.id)}
@@ -236,7 +236,7 @@ function HeatEditor({
                   : "bg-white/5 text-white/30"
             } disabled:cursor-not-allowed`}
           >
-            {heat._saving ? "saving..." : heat._saved && !heat._dirty ? "✓ saved" : "save"}
+            {heat._saving ? "กำลังบันทึก..." : heat._saved && !heat._dirty ? "✓ บันทึกแล้ว" : "บันทึก"}
           </button>
         </div>
       </div>

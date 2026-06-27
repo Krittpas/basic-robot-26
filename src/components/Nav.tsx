@@ -3,10 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/",           label: "HOME",       code: "00" },
-  { href: "/sprint",     label: "SPRINT",     code: "01" },
-  { href: "/mission",    label: "MISSION",    code: "02" },
-  { href: "/scoreboard", label: "SCOREBOARD", code: "03" },
+  { href: "/",           label: "หน้าแรก",      code: "00" },
+  { href: "/sprint",     label: "สปรินต์",      code: "01" },
+  { href: "/mission",    label: "ภารกิจ",       code: "02" },
+  { href: "/scoreboard", label: "คะแนน",        code: "03" },
 ];
 
 export function Nav() {

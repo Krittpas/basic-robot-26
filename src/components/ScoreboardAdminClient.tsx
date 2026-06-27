@@ -66,7 +66,7 @@ export function ScoreboardAdminClient({ initialGroups }: { initialGroups: Group[
                 onClick={() => setAbsolute(g.id, Number(editValue) || 0)}
                 className="rounded-md bg-teal-400 px-2.5 py-1.5 font-mono text-[11px] font-bold text-navy-950"
               >
-                set
+                ตั้งค่า
               </button>
             </div>
           ) : (

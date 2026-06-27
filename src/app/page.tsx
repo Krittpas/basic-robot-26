@@ -28,8 +28,8 @@ export default async function HomePage() {
           <span className="ml-3 font-mono text-2xl text-white/30 md:text-4xl">/26</span>
         </h1>
         <p className="mt-4 max-w-xl text-white/60">
-          ค่ายโรโบติกส์รุ่นที่ 26 — ห้องคอนโทรลรวมการแข่งขัน คะแนน และภารกิจ
-          ทุกอย่างอัปเดตเรียลไทม์
+          Basic Robot Camp 26 — เว็บไซต์สำหรับรวมการแข่งขัน คะแนน และภารกิจ
+          ทุกอย่างอัปเดตแบบเรียลไทม์
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
@@ -49,7 +49,7 @@ export default async function HomePage() {
           title="วิ่งเร็ว"
           status={finishedHeats === totalHeats ? "done" : finishedHeats > 0 ? "live" : "pending"}
           stat={`${finishedHeats}/${totalHeats}`}
-          statLabel="Heats เสร็จ"
+          statLabel="รายการเสร็จ"
           href="/sprint"
         />
         <Card

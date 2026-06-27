@@ -17,7 +17,7 @@ export default function AdminDashboard() {
           <div className="font-mono text-[10px] tracking-[0.2em] text-white/40">01 / SPRINT</div>
           <h2 className="mt-2 text-xl font-semibold">กรอกเวลาการแข่งวิ่ง</h2>
           <p className="mt-2 text-sm text-white/55">
-            กรอกเวลาแต่ละเลน, มาร์ก heat ว่าเสร็จ, จัดทีมรอบรอง/ชิงชนะเลิศ
+            กรอกเวลาแต่ละเลน มาร์กรายการว่าเสร็จสิ้น จัดทีมรอบรอง/ชิงชนะเลิศ
           </p>
         </Link>
         <Link

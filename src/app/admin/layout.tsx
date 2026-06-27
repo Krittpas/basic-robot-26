@@ -15,13 +15,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <nav className="flex gap-1 font-mono text-xs">
             <Link href="/admin" className="rounded-md px-3 py-1.5 text-white/60 hover:text-teal-400">
-              dashboard
+              แดชบอร์ด
             </Link>
             <Link href="/admin/sprint" className="rounded-md px-3 py-1.5 text-white/60 hover:text-teal-400">
-              sprint
+              สปรินต์
             </Link>
             <Link href="/admin/scoreboard" className="rounded-md px-3 py-1.5 text-white/60 hover:text-teal-400">
-              scoreboard
+              ตารางคะแนน
             </Link>
           </nav>
         </div>
