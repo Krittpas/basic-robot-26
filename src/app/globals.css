@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #0B1526;
+  color: #E6ECF5;
+}
+
+/* Grid background — เส้นกริดบางๆ ในธีม Control Room */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(26,188,156,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,188,156,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
+/* Scan line animation สำหรับ status badge */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+.pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+/* Number scrubber animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.85; }
+}
+
+/* Selection */
+::selection { background: #1ABC9C; color: #0B1526; }
+
+/* Inputs ในธีม */
+input.field, select.field {
+  background: rgba(11,21,38,0.6);
+  border: 1px solid rgba(26,188,156,0.25);
+  color: #E6ECF5;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.375rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+input.field:focus, select.field:focus {
+  border-color: #1ABC9C;
+  box-shadow: 0 0 0 3px rgba(26,188,156,0.15);
+}
