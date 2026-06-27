@@ -14,8 +14,8 @@ export async function PATCH(req: NextRequest) {
 
   // เก็บเฉพาะ field ที่อนุญาต
   const allowed = [
-    "lane1_team", "lane2_team", "lane3_team", "lane4_team",
-    "lane1_time", "lane2_time", "lane3_time", "lane4_time",
+    "lane1_team", "lane2_team", "lane3_team", "lane4_team", "lane5_team", "lane6_team",
+    "lane1_time", "lane2_time", "lane3_time", "lane4_time", "lane5_time", "lane6_time",
     "is_finished",
   ];
   const update: Record<string, unknown> = {};

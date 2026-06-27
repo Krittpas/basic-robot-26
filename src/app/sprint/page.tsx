@@ -19,11 +19,11 @@ export default async function SprintPage() {
           </div>
           <h1 className="mt-1 text-3xl font-bold">การแข่งขันวิ่งเร็ว</h1>
           <p className="mt-1 text-sm text-white/55">
-            26 ทีม · 4 เลน · แบ่งสาย + จับเวลา
+            26 ทีม · 6 เลน · แบ่งกลุ่ม + จับเวลา
           </p>
         </div>
         <div className="text-right font-mono text-xs text-white/40">
-          26_TEAMS / 10_HEATS
+          26_TEAMS / 8_HEATS
         </div>
       </header>
 
@@ -49,9 +49,11 @@ export default async function SprintPage() {
 function HeatCard({ heat }: { heat: Heat }) {
   const lanes = [
     { team: heat.lane1_team, time: heat.lane1_time, n: 1 },
-    { team: heat.lane2_team, time: heat.lane2_team ? heat.lane2_time : null, n: 2 },
+    { team: heat.lane2_team, time: heat.lane2_time, n: 2 },
     { team: heat.lane3_team, time: heat.lane3_time, n: 3 },
     { team: heat.lane4_team, time: heat.lane4_time, n: 4 },
+    { team: heat.lane5_team, time: heat.lane5_time, n: 5 },
+    { team: heat.lane6_team, time: heat.lane6_time, n: 6 },
   ];
 
   // จัดอันดับเฉพาะเลนที่มีทีม + มีเวลา
@@ -115,7 +117,7 @@ function HeatCard({ heat }: { heat: Heat }) {
 }
 
 function groupHeatsByRound(heats: Heat[]) {
-  const order = ["แบ่งสาย", "รอบรอง", "ชิงชนะเลิศ"];
+  const order = ["แบ่งกลุ่ม", "รอบรองชนะเลิศ", "รอบชิงชนะเลิศ"];
   const grouped: Record<string, Heat[]> = {};
   for (const h of heats) {
     grouped[h.round_name] = grouped[h.round_name] ?? [];

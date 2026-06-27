@@ -7,10 +7,14 @@ export type Heat = {
   lane2_team: string | null;
   lane3_team: string | null;
   lane4_team: string | null;
+  lane5_team: string | null;
+  lane6_team: string | null;
   lane1_time: number | null;
   lane2_time: number | null;
   lane3_time: number | null;
   lane4_time: number | null;
+  lane5_time: number | null;
+  lane6_time: number | null;
   is_finished: boolean;
   updated_at: string;
 };

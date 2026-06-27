@@ -26,10 +26,14 @@ export function SprintAdminClient({ initialHeats }: { initialHeats: Heat[] }) {
       lane2_team: heat.lane2_team ?? null,
       lane3_team: heat.lane3_team ?? null,
       lane4_team: heat.lane4_team ?? null,
+      lane5_team: heat.lane5_team ?? null,
+      lane6_team: heat.lane6_team ?? null,
       lane1_time: toNum(heat.lane1_time),
       lane2_time: toNum(heat.lane2_time),
       lane3_time: toNum(heat.lane3_time),
       lane4_time: toNum(heat.lane4_time),
+      lane5_time: toNum(heat.lane5_time),
+      lane6_time: toNum(heat.lane6_time),
       is_finished: heat.is_finished,
     };
     const res = await fetch("/api/sprint", {
@@ -66,7 +70,7 @@ function HeatEditor({
   onSave: (id: number) => void;
 }) {
   const isFinal = heat.heat_label === "Final";
-  const isLater = heat.heat_order >= 8;
+  const isLater = heat.heat_order >= 6;
 
   return (
     <div
@@ -109,8 +113,8 @@ function HeatEditor({
         </div>
       </div>
 
-      <div className="grid gap-2 md:grid-cols-4">
-        {[1, 2, 3, 4].map((n) => {
+      <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        {[1, 2, 3, 4, 5, 6].map((n) => {
           const teamField = `lane${n}_team` as keyof Heat;
           const timeField = `lane${n}_time` as keyof Heat;
           return (

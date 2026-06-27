@@ -9,40 +9,42 @@ drop table if exists groups cascade;
 drop table if exists mission_state cascade;
 
 -- =====================================================
--- HEATS — ตารางแข่งวิ่งเร็ว 10 heats
+-- HEATS — ตารางแข่งวิ่งเร็ว 8 heats, 6 เลน
 -- =====================================================
 create table heats (
   id            int primary key,
   heat_order    int not null,
-  round_name    text not null,           -- 'แบ่งสาย' | 'รอบรอง' | 'ชิงชนะเลิศ'
-  heat_label    text not null,           -- 'สาย A' | 'SF1' | 'Final'
+  round_name    text not null,           -- 'แบ่งกลุ่ม' | 'รอบรองชนะเลิศ' | 'รอบชิงชนะเลิศ'
+  heat_label    text not null,           -- 'สาย A' | 'Semi Final 1' | 'Final'
   lane1_team    text,
   lane2_team    text,
   lane3_team    text,
   lane4_team    text,
+  lane5_team    text,
+  lane6_team    text,
   lane1_time    numeric(6,3),            -- วินาที ทศนิยม 3 ตำแหน่ง
   lane2_time    numeric(6,3),
   lane3_time    numeric(6,3),
   lane4_time    numeric(6,3),
+  lane5_time    numeric(6,3),
+  lane6_time    numeric(6,3),
   is_finished   boolean default false,
   updated_at    timestamptz default now()
 );
 
--- Seed 10 heats ตาม bracket
-insert into heats (id, heat_order, round_name, heat_label, lane1_team, lane2_team, lane3_team, lane4_team) values
-  (1,  1,  'แบ่งสาย',     'สาย A', '46-01', '410-01', '46-07',  '410-08'),
-  (2,  2,  'แบ่งสาย',     'สาย B', '46-02', '410-02', '46-08',  '410-09'),
-  (3,  3,  'แบ่งสาย',     'สาย C', '46-03', '410-03', '46-09',  '410-10'),
-  (4,  4,  'แบ่งสาย',     'สาย D', '46-04', '410-04', '46-10',  '410-11'),
-  (5,  5,  'แบ่งสาย',     'สาย E', '46-05', '410-05', '46-11',  '410-12'),
-  (6,  6,  'แบ่งสาย',     'สาย F', '46-06', '410-06', '410-13', null),
-  (7,  7,  'แบ่งสาย',     'สาย G', '46-12', '410-07', '410-14', null),
-  (8,  8,  'รอบรอง',      'SF1',   null, null, null, null),
-  (9,  9,  'รอบรอง',      'SF2',   null, null, null, null),
-  (10, 10, 'ชิงชนะเลิศ', 'Final', null, null, null, null);
+-- Seed 8 heats ตาม bracket
+insert into heats (id, heat_order, round_name, heat_label, lane1_team, lane2_team, lane3_team, lane4_team, lane5_team, lane6_team) values
+  (1, 1, 'แบ่งกลุ่ม',       'สาย A',        '46-01',  '46-02',  '46-03',  '46-04',  '46-05',  null),
+  (2, 2, 'แบ่งกลุ่ม',       'สาย B',        '46-06',  '46-07',  '46-08',  '46-09',  '46-10',  null),
+  (3, 3, 'แบ่งกลุ่ม',       'สาย C',        '410-01', '410-02', '410-03', '410-04', '410-05', null),
+  (4, 4, 'แบ่งกลุ่ม',       'สาย D',        '410-06', '410-07', '410-08', '410-09', '410-10', null),
+  (5, 5, 'แบ่งกลุ่ม',       'สาย E',        '410-11', '410-12', '410-13', '410-14', '46-11',  '46-12'),
+  (6, 6, 'รอบรองชนะเลิศ',   'Semi Final 1', null, null, null, null, null, null),
+  (7, 7, 'รอบรองชนะเลิศ',   'Semi Final 2', null, null, null, null, null, null),
+  (8, 8, 'รอบชิงชนะเลิศ',   'Final',        null, null, null, null, null, null);
 
 -- =====================================================
--- GROUPS — 16 กลุ่ม
+-- GROUPS — 13 กลุ่ม
 -- =====================================================
 create table groups (
   id          int primary key,
