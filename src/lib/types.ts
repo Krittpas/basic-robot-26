@@ -37,6 +37,7 @@ export type PingPong = {
   id: number;
   name: string;
   qualifying_score: number | null;
+  sf_won: boolean | null;
   final_rank: number | null;
   updated_at: string;
 };

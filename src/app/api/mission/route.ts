@@ -6,12 +6,13 @@ export async function PATCH(req: NextRequest) {
   if (!isAdmin()) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { id, qualifying_score, final_rank } = body;
+  const { id, qualifying_score, final_rank, sf_won } = body;
   if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
 
   const update: Record<string, unknown> = { updated_at: new Date().toISOString() };
   if (qualifying_score !== undefined) update.qualifying_score = qualifying_score;
   if (final_rank !== undefined) update.final_rank = final_rank;
+  if (sf_won !== undefined) update.sf_won = sf_won;
 
   const { data, error } = await supabaseAdmin()
     .from("ping_pong")
