@@ -121,6 +121,52 @@ export default async function MissionPage() {
         </div>
       )}
 
+      {/* ตารางแข่งรอบรองชนะเลิศ */}
+      {scored.length >= 4 && !hasTie && (
+        <div className="mb-6 rounded-xl border border-white/10 bg-navy-900/60 p-5">
+          <div className="font-mono text-[10px] tracking-[0.3em] text-teal-400">
+            // รอบรองชนะเลิศ · 2 สนาม
+          </div>
+          <h2 className="mt-1 text-base font-bold text-white">ตารางแข่งรอบรองชนะเลิศ</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {/* สนาม 1: อันดับ 1 vs อันดับ 3 */}
+            <div className="rounded-xl border border-teal-400/20 bg-teal-400/5 p-4">
+              <div className="mb-3 font-mono text-[10px] tracking-widest text-teal-400">สนาม 1</div>
+              <div className="flex items-center gap-3">
+                <div className="flex-1 text-center">
+                  <div className="font-mono text-[10px] text-white/40">อันดับ 1</div>
+                  <div className="mt-1 font-mono text-base font-bold text-white">{scored[0].name}</div>
+                  <div className="mt-0.5 font-mono text-xs text-white/50">{scored[0].qualifying_score} ลูก</div>
+                </div>
+                <div className="font-mono text-sm font-bold text-white/30">VS</div>
+                <div className="flex-1 text-center">
+                  <div className="font-mono text-[10px] text-white/40">อันดับ 3</div>
+                  <div className="mt-1 font-mono text-base font-bold text-white">{scored[2].name}</div>
+                  <div className="mt-0.5 font-mono text-xs text-white/50">{scored[2].qualifying_score} ลูก</div>
+                </div>
+              </div>
+            </div>
+            {/* สนาม 2: อันดับ 2 vs อันดับ 4 */}
+            <div className="rounded-xl border border-teal-400/20 bg-teal-400/5 p-4">
+              <div className="mb-3 font-mono text-[10px] tracking-widest text-teal-400">สนาม 2</div>
+              <div className="flex items-center gap-3">
+                <div className="flex-1 text-center">
+                  <div className="font-mono text-[10px] text-white/40">อันดับ 2</div>
+                  <div className="mt-1 font-mono text-base font-bold text-white">{scored[1].name}</div>
+                  <div className="mt-0.5 font-mono text-xs text-white/50">{scored[1].qualifying_score} ลูก</div>
+                </div>
+                <div className="font-mono text-sm font-bold text-white/30">VS</div>
+                <div className="flex-1 text-center">
+                  <div className="font-mono text-[10px] text-white/40">อันดับ 4</div>
+                  <div className="mt-1 font-mono text-base font-bold text-white">{scored[3].name}</div>
+                  <div className="mt-0.5 font-mono text-xs text-white/50">{scored[3].qualifying_score} ลูก</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ผลรอบคัดเลือก */}
       <section>
         <div className="mb-3 flex items-center gap-3 font-mono text-xs text-white/45">
