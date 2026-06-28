@@ -57,9 +57,9 @@ export default async function MissionPage() {
   const top4 = scored.slice(0, 4);
   const showBracket = top4.length === 4 && !hasTie;
 
-  // SF pairings
-  const sf1 = showBracket ? [top4[0], top4[2]] : [];
-  const sf2 = showBracket ? [top4[1], top4[3]] : [];
+  // SF pairings: สนาม 1 = อันดับ 1 vs อันดับ 4, สนาม 2 = อันดับ 2 vs อันดับ 3
+  const sf1 = showBracket ? [top4[0], top4[3]] : [];
+  const sf2 = showBracket ? [top4[1], top4[2]] : [];
   const sf1Winner = sf1.find((g) => g.sf_won === true);
   const sf1Loser = sf1.find((g) => g.sf_won === false);
   const sf2Winner = sf2.find((g) => g.sf_won === true);
@@ -129,8 +129,8 @@ export default async function MissionPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { label: "สนาม 1", pair: sf1, rankLabels: ["อันดับ 1", "อันดับ 3"] },
-                { label: "สนาม 2", pair: sf2, rankLabels: ["อันดับ 2", "อันดับ 4"] },
+                { label: "สนาม 1", pair: sf1, rankLabels: ["อันดับ 1", "อันดับ 4"] },
+                { label: "สนาม 2", pair: sf2, rankLabels: ["อันดับ 2", "อันดับ 3"] },
               ].map(({ label, pair, rankLabels }) => {
                 const winner = pair.find((g) => g.sf_won === true);
                 return (

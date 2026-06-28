@@ -84,8 +84,9 @@ export function MissionAdminClient({ initialGroups }: { initialGroups: PingPong[
   const showBracket = top4.length === 4 && !hasTie;
 
   // SF pairs: sf1 = top4[0] vs top4[2], sf2 = top4[1] vs top4[3]
-  const sf1 = showBracket ? [top4[0], top4[2]] : [];
-  const sf2 = showBracket ? [top4[1], top4[3]] : [];
+  // สนาม 1: อันดับ 1 vs อันดับ 4, สนาม 2: อันดับ 2 vs อันดับ 3
+  const sf1 = showBracket ? [top4[0], top4[3]] : [];
+  const sf2 = showBracket ? [top4[1], top4[2]] : [];
   const sf1Done = sf1.some((g) => g.sf_won === true);
   const sf2Done = sf2.some((g) => g.sf_won === true);
   const sf1Winner = sf1.find((g) => g.sf_won === true);
@@ -140,8 +141,8 @@ export function MissionAdminClient({ initialGroups }: { initialGroups: PingPong[
                   {/* Team rows */}
                   {[a, b].map((g, ti) => {
                     const rankLabel = si === 0
-                      ? (ti === 0 ? "อันดับ 1" : "อันดับ 3")
-                      : (ti === 0 ? "อันดับ 2" : "อันดับ 4");
+                      ? (ti === 0 ? "อันดับ 1" : "อันดับ 4")
+                      : (ti === 0 ? "อันดับ 2" : "อันดับ 3");
                     const isWinner = g.sf_won === true;
                     const isLoser = g.sf_won === false;
                     return (
