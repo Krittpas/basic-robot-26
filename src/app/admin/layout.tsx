@@ -20,6 +20,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link href="/admin/sprint" className="rounded-md px-3 py-1.5 text-white/60 hover:text-teal-400">
               สปรินต์
             </Link>
+            <Link href="/admin/mission" className="rounded-md px-3 py-1.5 text-white/60 hover:text-teal-400">
+              ภารกิจ
+            </Link>
             <Link href="/admin/scoreboard" className="rounded-md px-3 py-1.5 text-white/60 hover:text-teal-400">
               ตารางคะแนน
             </Link>

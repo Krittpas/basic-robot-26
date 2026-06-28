@@ -32,3 +32,11 @@ export type MissionState = {
   message: string | null;
   updated_at: string;
 };
+
+export type PingPong = {
+  id: number;
+  name: string;
+  qualifying_score: number | null;
+  final_rank: number | null;
+  updated_at: string;
+};
