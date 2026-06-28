@@ -27,6 +27,40 @@ export default async function SprintPage() {
         </div>
       </header>
 
+      {/* ประกาศผลการแข่งขัน */}
+      <div className="mb-6 rounded-xl border border-gold-400/40 bg-gold-400/5 p-5 shadow-[0_0_32px_-8px_rgba(243,156,18,0.3)]">
+        <div className="font-mono text-[10px] tracking-[0.3em] text-gold-400">
+          // SPRINT · FINAL RESULTS
+        </div>
+        <h2 className="mt-1 text-lg font-bold text-gold-400">ผลการแข่งขันวิ่งเร็ว</h2>
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
+          {/* อันดับ 1 */}
+          <div className="flex flex-1 items-center gap-3 rounded-xl border border-gold-400/50 bg-gold-400/10 px-4 py-3">
+            <div className="text-3xl font-bold text-gold-400">🥇</div>
+            <div>
+              <div className="font-mono text-[10px] tracking-widest text-gold-400">อันดับ 1</div>
+              <div className="mt-0.5 text-base font-bold text-white">4/10 กลุ่มที่ 11</div>
+            </div>
+          </div>
+          {/* อันดับ 2 */}
+          <div className="flex flex-1 items-center gap-3 rounded-xl border border-teal-400/40 bg-teal-400/5 px-4 py-3">
+            <div className="text-3xl font-bold text-teal-400">🥈</div>
+            <div>
+              <div className="font-mono text-[10px] tracking-widest text-teal-400">อันดับ 2</div>
+              <div className="mt-0.5 text-base font-bold text-white">4/6 กลุ่มที่ 2</div>
+            </div>
+          </div>
+          {/* อันดับ 3 */}
+          <div className="flex flex-1 items-center gap-3 rounded-xl border border-white/20 bg-white/5 px-4 py-3">
+            <div className="text-3xl font-bold text-white/60">🥉</div>
+            <div>
+              <div className="font-mono text-[10px] tracking-widest text-white/50">อันดับ 3</div>
+              <div className="mt-0.5 text-base font-bold text-white">4/6 กลุ่มที่ 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="space-y-6">
         {groupHeatsByRound(heats ?? []).map((section) => (
           <section key={section.round}>
